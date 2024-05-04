@@ -1,0 +1,28 @@
+{
+  "name": "tokyo_life",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon --inspect app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tung448/TokyoLife.git"
+  },
+  "keywords": [
+    "tokyo",
+    "life"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tung448/TokyoLife/issues"
+  },
+  "homepage": "https://github.com/tung448/TokyoLife#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0"
+  }
+}
