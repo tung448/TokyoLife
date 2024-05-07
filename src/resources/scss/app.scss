@@ -1,4 +1,129 @@
 @import 'variables';
-h1{
-    color: $red-color; 
+
+:root{
+    --while-color:#fff;
+    --black-color:#000;
+    --text-color: #333;
+
+}
+*{
+    box-sizing: inherit;
+}
+a{
+    text-decoration: none;
+    color: var(--black-color);
+}
+body{
+    margin: 0px;
+}
+html{
+    font-size: 62.5%;
+    font-family: 'Roboto',sans-serif;
+    box-sizing: border-box;
+}
+.grid{
+    width: $width-media;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.grid__full-width{
+    width: 100%;
+}
+.grid__row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.header__navbar{
+    height:126px;
+}
+.header__navbar_first{
+    background-color: rgb(248,241,228);
+    height: $height-header;
+}
+.header_navbar_first_element{
+    height: $height-header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header_img_logo{
+    width:212px;
+    height:32px;
+}
+.header_search{
+    display: flex;
+    height: 40px;
+    border-radius: 5px;
+    background-color: var(--while-color);
+}
+
+.header_search-input{
+    margin-left: 10px;
+    width: 640px;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 1.6rem;
+}
+
+.header_icon_search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #C92127;
+    height: auto;
+    width: 10%;
+    border-radius: 0px 5px 5px 0px;
+}
+.icon_search{
+    
+}
+
+.header_navbar_icon{
+    margin: 0 8px;
+    padding: auto;
+    font-size: 1.8rem;
+}
+
+
+
+
+
+// nav_bar second
+
+.header__navbar_second{
+    height:63px;
+}
+.header__navbar_items{
+    align-items: center;
+}
+.header_items_list{
+    align-items: center;
+    list-style: none;
+    font-size: 1.6rem;
+}
+.header__navbar_second_element{
+    margin:0 16px;
+    position: relative;
+}
+.header__navbar_second_item{
+    font-weight: bold;
+}
+.has_mennu:hover .header__navbar__menu_female{
+    display: block;
+}
+
+.header__navbar_second_item:hover{
+    cursor: pointer;
+    color: rgb(255, 0, 0);
+}
+.header__navbar__menu_female{
+    position: absolute;
+    top: 100%;
+    left: -100%;
+    width: $width-media;
+    height: $height-menu;
+    background-color: #000;
+    display: none;
 }
