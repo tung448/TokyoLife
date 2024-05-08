@@ -9,6 +9,9 @@
 *{
     box-sizing: inherit;
 }
+li{
+    list-style: none;
+}
 a{
     text-decoration: none;
     color: var(--black-color);
@@ -73,17 +76,20 @@ html{
     justify-content: center;
     background-color: #C92127;
     height: auto;
-    width: 10%;
+    width: 8%;
     border-radius: 0px 5px 5px 0px;
 }
 .icon_search{
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 .header_navbar_icon{
     margin: 0 8px;
-    padding: auto;
-    font-size: 1.8rem;
+    font-size: 2rem;
 }
 
 
@@ -110,7 +116,7 @@ html{
 .header__navbar_second_item{
     font-weight: bold;
 }
-.has_mennu:hover .header__navbar__menu_female{
+.has_menu_female:hover .has__menu{
     display: block;
 }
 
@@ -118,12 +124,60 @@ html{
     cursor: pointer;
     color: rgb(255, 0, 0);
 }
-.header__navbar__menu_female{
+.has__menu {
     position: absolute;
     top: 100%;
-    left: -100%;
+    left: -110px;
     width: $width-media;
     height: $height-menu;
-    background-color: #000;
+    background-color: #F6F6F6;
     display: none;
+}
+.female__dresses{
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+.header__female__dresses__item,.header__female__brand {
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.header__item,.header__brand{
+    font-weight: bold;
+}
+
+.female__item__dress,.female__item__brand{
+    margin: 10px 0px;
+}
+
+.menu__brand{
+    margin-right: 50px;
+}
+
+.menu__female__pants{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pants__item,.bikini__item,.sock__item{
+    margin: 10px 0px;
+}
+.header__long__pants,.header__bikini,.header__sock{
+    font-weight: bold;
+}
+
+.header__list__long__pants,.header__list__bikini,.header__list__sock{
+    margin-left: 40px;
+}
+
+.list__sock{
+    margin-right: 45px;
+}
+
+.has_menu_male:hover .has__menu{
+    display: block;
 }
