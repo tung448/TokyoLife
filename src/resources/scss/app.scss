@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'base';
 
 :root{
     --while-color:#fff;
@@ -37,6 +38,14 @@ html{
     flex-wrap: wrap;
 }
 
+.grid__column__2{
+    padding-right: 10px;
+    padding-left: 10px;
+    width: 16.6667%;
+}
+
+
+// Header fisrt
 .header__navbar{
     height:126px;
 }
@@ -132,6 +141,7 @@ html{
     height: $height-menu;
     background-color: #F6F6F6;
     display: none;
+    animation: fadeIn ease-in 0.3s;
 }
 .female__dresses{
     display: flex;
@@ -180,4 +190,48 @@ html{
 
 .has_menu_male:hover .has__menu{
     display: block;
+}
+
+
+// body
+
+.container__body{
+}
+
+.header__body__menu{
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.title__body{
+    font-size: 2rem;
+    font-weight: bold;
+    color: #C92127;
+}
+
+.image__category{
+    width: 176px;
+    height: 176px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.dicription{
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+.text__dicription{
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.category__male{
+    padding-top: 70px;
+}
+
+.image__category__sale__off{
+    width: 176px;
+    height: 176px;
+    object-fit: cover;
 }
