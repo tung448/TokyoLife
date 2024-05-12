@@ -25,9 +25,9 @@ app.get('/', (req,res)=>{ // req client // res from server
     res.render('home'); // render home.handlebars
 });
 
-// news
-app.get('/news', (req,res)=>{ // req client // res from server
-    res.render('news'); // render home.handlebars
+// clothing-female 
+app.get('/clothing-female', (req,res)=>{ // req client // res from server
+    res.render('clothing-female'); // render home.handlebars
 });
 
 
