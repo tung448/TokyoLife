@@ -1,14 +1,15 @@
 const express = require('express');
 const handlebar = require('express-handlebars');
 const path = require('path');
-
-
+const dataBase = require('./config/db/index');
 
 const app = express();
 const port = 3000
 
-app.use(express.static(path.join(__dirname,'public'))); // static file
+const routes = require('./routes/index');
 
+app.use(express.static(path.join(__dirname,'public'))); // static file
+dataBase.connect();
 
 
 //temple engine
@@ -20,16 +21,8 @@ app.set('views', path.join(__dirname, 'resources/views')); // unstable directory
 
 console.log(path.join(__dirname, 'resources/views'));
 
-//home
-app.get('/', (req,res)=>{ // req client // res from server
-    res.render('home'); // render home.handlebars
-});
+// routes
+routes(app);
 
-// clothing-female 
-app.get('/clothing-female', (req,res)=>{ // req client // res from server
-    res.render('clothing-female'); // render home.handlebars
-});
-
-
-app.listen(port,()=>console.log('App listening at local host'));
+app.listen(port,()=>console.log(`Server is running on http://localhost:${port}`));
 
