@@ -4,6 +4,8 @@ const clothing_femaleController = require('../app/controllers/Clothing_femaleCon
 
 
 
+router.get('/:slug',clothing_femaleController.buyitem);
+
 router.get('/',clothing_femaleController.index);
 
 

@@ -14,7 +14,6 @@
                                     <img src= "{{this.imageURL}}" alt="" class="image__category">
                                     <div class="dicription">
                                         <span class="text__dicription">{{this.description}}</span>
-                
                                     </div>
                                 </a>
                             </div>
@@ -80,7 +79,7 @@
                 <div class="grid__row category__sele__off">
                     {{#each items}}
                         <div class="grid__column__3">
-                            <a href="#" class="category__link">
+                            <a href="clothing-female/{{this.slug}}" class="category__link">
                                 <img src="{{this.imageURL}}" alt="" class="image__category__sale__off">
                                 <div class="dicription__sale__off">
                                     <span class="text__dicription__sale__off">{{this.description}}</span>

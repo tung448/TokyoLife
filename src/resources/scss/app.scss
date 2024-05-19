@@ -50,6 +50,16 @@ html{
     width: 25%;
 }
 
+.grid__column__4{
+    padding-right: 10px;
+    padding-left: 10px;
+    width: 33.3334%;
+}
+.grid__column__8{
+    padding-right: 10px;
+    padding-left: 10px;
+    width: 66.6667%;
+}
 
 // Header fisrt
 .header__navbar{
@@ -200,9 +210,6 @@ html{
 
 // body
 
-.container__body{
-}
-
 .header__body__menu{
     display: flex;
     justify-content: center;
@@ -276,4 +283,141 @@ html{
 .text__discription__footer{
     font-size: 1.8rem;
     color: var(--while-color);
+}
+
+
+//////////// buy item
+/// 
+/// 
+.container_buy_item{
+    margin-top: 20px;
+}
+.show__image__item{
+    display: flex;
+}
+
+.image__item{
+    margin-left: 35px;
+}
+.imageURL{
+    width: 650px;
+    height: 740px;
+    object-fit: cover;
+}
+
+.sold__out{
+    height: 23px;
+    width: 65px;
+    background-color: #ED4A36;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text__sold__out{
+    font-size: 1.0rem;
+    color: var(--while-color);
+    font-weight: bold;
+}
+.show__name__item,
+.show__description__item{
+    margin-top: 10px;
+}
+.name__item{
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.description__item{
+    font-size: 1.2rem;
+    color: #C92173;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.show__price__item{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.price__item{
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.status__item{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.fa-circle-check{
+    color: green;
+}
+
+hr {
+    border: none;
+    border-top: 2px dashed #000;        /* Xóa đường viền mặc định */
+    margin: 20px 0;        /* Khoảng cách trên dưới */
+}
+
+.choose__quality__item{
+    
+}
+.quality__item{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.add__buy__item{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.add__item{
+    width: 185px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 2px solid #C92027;
+    border-radius: 5px;
+}
+.fa-cart-shopping{
+    font-size: 1.8rem;
+    color: #C92027;
+}
+.text__add__item{
+    font-size: 1.8rem;
+    color: #C92027;
+}
+.buy__item{
+    border-radius: 5px;
+    width: 180px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #C92027;
+}
+.fa-bag-shopping{
+    font-size: 1.8rem;
+    color: var(--while-color);
+    margin-left: 15px;
+}
+.text__buy__item{
+    margin-right: 15px;
+    font-size: 1.8rem;
+    color: var(--while-color);
+}
+.add__item:hover,.buy__item:hover{
+    animation: zoomOut forwards 0.5s;
+}
+.benefit__ship{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.fa-truck{
+    display: flex;
+    justify-content: center;
 }
