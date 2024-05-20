@@ -7,6 +7,9 @@
     --text-color: #333;
 
 }
+.app{
+    background-color: #F5F5F5;
+}
 *{
     box-sizing: inherit;
 }
@@ -51,13 +54,11 @@ html{
 }
 
 .grid__column__4{
-    padding-right: 10px;
-    padding-left: 10px;
+    padding: 0 10px;
     width: 33.3334%;
 }
 .grid__column__8{
-    padding-right: 10px;
-    padding-left: 10px;
+    padding: 0 10px;
     width: 66.6667%;
 }
 
@@ -297,7 +298,7 @@ html{
 }
 
 .image__item{
-    margin-left: 35px;
+    margin-left: 10px;
 }
 .imageURL{
     width: 650px;
@@ -413,11 +414,146 @@ hr {
 }
 .benefit__ship{
     display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
 }
 
-.fa-truck{
+.icon__benefit__ship{
     display: flex;
     justify-content: center;
+    color: #AC0007;
+}
+.fa-truck,.fa-rotate,.fa-sack-dollar{
+    font-size: 2.5rem;
+}
+
+.text__truck__ship,
+.text__exchange__item,
+.text__check__after__cash{
+    padding-top:10px;
+    text-align:center;
+    font-size:1.5rem;
+}
+
+// cart page
+
+.status__order{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cart__status:hover .fa-cart-plus,
+.cart__status:hover .text__cart__status{
+    color: #AC0007;
+}
+
+.fa-cart-plus,.text__cart__status{
+    font-weight: bold;
+    color: #999999;
+    margin: 2px;
+    font-size: 2.0rem;
+}
+.fa-box,.text__ordered__item{
+    font-weight: bold;
+    color: #999999;
+    margin: 2px;
+    font-size: 2.0rem;
+}
+.fa-square-check,.text__cash__item{
+    font-weight: bold;
+    color: #999999;
+    margin: 2px;
+    font-size: 2.0rem;
+}
+.ordered__item{
+    padding: 0 150px;
+}
+.detail__user__order{
+    display: flex;
+    margin-top: 30px;
+}
+
+.header__cart{
+    margin-left: 40px;
+    display: flex;
+}
+.total__money__quanlity{
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.text__tittle__name,.text__quanlity
+,.text__total__money{
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+.image__item__from__data__base{
+    width: 90px;
+    height: 135px;
+    object-fit: cover;
+}
+.body__cart{
+    margin-left: 40px;
+}
+.foreach__item__info{
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+}
+.checkbox-container{
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+    display: flex;
+    align-items: center;
+}
+
+.image__name__item__form__data__base{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.name__from__data__base{
+    margin-left: 20px;
+}
+.name__item__from__data__base{
+    font-size: 1.3rem;
+}
+.quanlity__cost__item{
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.show__cost__item{
+    margin-right: 20px;
+}
+.text__quanlity__item{
+    margin-left: 10px;
+}
+.text__show__quanlity,.text__show__cost{
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #C92127;
+}
+#totalCost{
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+
+#checkout{
+    margin-top: 50px;
+    border: none;
+    background-color: #B91E24;
+    width: 350px;
+    height: 40px;
+    border-radius: 5px;
+}
+#checkout:hover{
+    cursor: pointer;
+    animation: zoomOut forwards 0.4s;
+}
+.text__checkout{
+    font-size: 1.5rem;
 }

@@ -1,7 +1,7 @@
 const modelItem = require('../models/Model_Items');
 
 class SitesController{
-    home(req, res,next) {
+    home(req, res) {
         res.render('home');
     } 
 }

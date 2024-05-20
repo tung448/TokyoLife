@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <div class="container__cart">
+            <div class="status__order">
+                <div class="cart__status">
+                    <i class="fa-solid fa-cart-plus"></i>
+                    <span class="text__cart__status">Giỏ hàng</span>
+                </div>
+                <div class="ordered__item">
+                    <i class="fa-solid fa-box"></i>
+                    <span class="text__ordered__item">Đặt hàng</span>
+                </div>
+                <div class="cash__item">
+                    <i class="fa-solid fa-square-check"></i>
+                    <span class="text__cash__item">Hoàn thành đơn hàng</span>
+                </div>
+            </div>
+            <div class="detail__user__order">
+                <div class="detail__cart grid__column__8">
+                    {{#with user}}
+                        <div class="header__cart">
+                            <div class="name__item__cart grid__column__4">
+                                <span class="text__tittle__name">Tên hàng</span>
+                            </div>
+                            <div class="total__money__quanlity grid__column__4">
+                                <div class="quanlity__item">
+                                    <span class="text__quanlity">Số lượng</span>
+                                </div>
+                                <div class="total__money__item">
+                                    <span class="text__total__money">Tổng tiền</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="body__cart">
+                            {{#each cart_user}}
+                                <div class="foreach__item__info">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" name="item" value="{{this.cost}}">
+                                    </label>
+                                    <div class="image__name__item__form__data__base grid__column__4">
+                                        <div class="image__from__data__base">
+                                            <img src="{{this.imgURLitem}}" alt="" class="image__item__from__data__base">
+                                        </div>
+                                        <div class="name__from__data__base">
+                                            <span class="name__item__from__data__base">
+                                                {{this.name}}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="quanlity__cost__item grid__column__4">
+                                        <div class="text__quanlity__item">
+                                            <span class="text__show__quanlity">1</span>
+                                        </div>
+                                        <div class="show__cost__item">
+                                            <span class="text__show__cost">
+                                                {{this.cost}}đ
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/each}}
+                        </div>
+                    {{/with}}
+                </div>
+                <div class="total__money grid__column__4">
+                    <div id="totalCost">Tổng giá trị đơn hàng : 0 VND</div>
+                    <button id="checkout">
+                        <span class="text__checkout">Tiếp tục thanh toán</span>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </body>
+    <script>
+        function sumOfItems(){
+            // get all check boxes clicked
+            const checkboxes = document.querySelectorAll('input[name="item"]:checked');
+            let sum = 0;
+            checkboxes.forEach((checkbox)=>{
+                sum+= parseFloat(checkbox.value);
+            });
+            document.getElementById('totalCost').innerText = 'Tổng giá trị đơn hàng: ' + sum + ' VND';
+        }
+        // listen check boxes when change
+        document.querySelectorAll('.checkbox-container').forEach((checkbox) => {
+            checkbox.addEventListener('change', sumOfItems);
+        });
+        
+    </script>
+</html>
+
