@@ -51,13 +51,11 @@ html{
 }
 
 .grid__column__4{
-    padding-right: 10px;
-    padding-left: 10px;
+    padding: 0 10px;
     width: 33.3334%;
 }
 .grid__column__8{
-    padding-right: 10px;
-    padding-left: 10px;
+    padding: 0 10px;
     width: 66.6667%;
 }
 
@@ -297,7 +295,7 @@ html{
 }
 
 .image__item{
-    margin-left: 35px;
+    margin-left: 10px;
 }
 .imageURL{
     width: 650px;
@@ -413,11 +411,64 @@ hr {
 }
 .benefit__ship{
     display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
 }
 
-.fa-truck{
+.icon__benefit__ship{
     display: flex;
     justify-content: center;
+    color: #AC0007;
+}
+.fa-truck,.fa-rotate,.fa-sack-dollar{
+    font-size: 2.5rem;
+}
+
+.text__truck__ship,
+.text__exchange__item,
+.text__check__after__cash{
+    padding-top:10px;
+    text-align:center;
+    font-size:1.5rem;
+}
+
+// cart page
+.status__order{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cart__status:hover .fa-cart-plus,
+.cart__status:hover .text__cart__status{
+    color: #AC0007;
+}
+
+.fa-cart-plus,.text__cart__status{
+    font-weight: bold;
+    color: #999999;
+    margin: 2px;
+    font-size: 2.0rem;
+}
+.fa-box,.text__ordered__item{
+    font-weight: bold;
+    color: #999999;
+    margin: 2px;
+    font-size: 2.0rem;
+}
+.fa-square-check,.text__cash__item{
+    font-weight: bold;
+    color: #999999;
+    margin: 2px;
+    font-size: 2.0rem;
+}
+.ordered__item{
+    padding: 0 150px;
+}
+.detail__user__order{
+    display: flex;
+}
+
+.detail__cart{
+    background-color: #999999;
+}
+.total__money{
+    background-color: #AC0007;
 }

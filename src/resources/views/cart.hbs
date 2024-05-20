@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <div class="container__cart">
+            <div class="status__order">
+                <div class="cart__status">
+                    <i class="fa-solid fa-cart-plus"></i>
+                    <span class="text__cart__status">Giỏ hàng</span>
+                </div>
+                <div class="ordered__item">
+                    <i class="fa-solid fa-box"></i>
+                    <span class="text__ordered__item">Đặt hàng</span>
+                </div>
+                <div class="cash__item">
+                    <i class="fa-solid fa-square-check"></i>
+                    <span class="text__cash__item">Hoàn thành đơn hàng</span>
+                </div>
+            </div>
+            <div class="detail__user__order">
+                <div class="detail__cart grid__column__8">
+                    {{#with user}}
+                        {{#each cart_user}}
+                            <h1>{{this.name}}</h1>
+                        {{/each}}
+                    {{/with}}
+                </div>
+                <div class="total__money grid__column__4">
+                    
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
+
