@@ -434,7 +434,10 @@ hr {
 }
 
 // cart page
+<<<<<<< HEAD
 
+=======
+>>>>>>> c09eec4dd463949b4725bcadf5faa83e6c5e65cf
 .status__order{
     display: flex;
     justify-content: center;
@@ -468,6 +471,7 @@ hr {
 }
 .detail__user__order{
     display: flex;
+<<<<<<< HEAD
     margin-top: 30px;
 }
 
@@ -556,4 +560,13 @@ hr {
 }
 .text__checkout{
     font-size: 1.5rem;
+=======
+}
+
+.detail__cart{
+    background-color: #999999;
+}
+.total__money{
+    background-color: #AC0007;
+>>>>>>> c09eec4dd463949b4725bcadf5faa83e6c5e65cf
 }

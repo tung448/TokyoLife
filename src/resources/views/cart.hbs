@@ -19,6 +19,7 @@
             <div class="detail__user__order">
                 <div class="detail__cart grid__column__8">
                     {{#with user}}
+<<<<<<< HEAD
                         <div class="header__cart">
                             <div class="name__item__cart grid__column__4">
                                 <span class="text__tittle__name">Tên hàng</span>
@@ -70,10 +71,21 @@
                     </button>
                 </div>
 
+=======
+                        {{#each cart_user}}
+                            <h1>{{this.name}}</h1>
+                        {{/each}}
+                    {{/with}}
+                </div>
+                <div class="total__money grid__column__4">
+                    
+                </div>
+>>>>>>> c09eec4dd463949b4725bcadf5faa83e6c5e65cf
             </div>
 
         </div>
     </body>
+<<<<<<< HEAD
     <script>
         function sumOfItems(){
             // get all check boxes clicked
@@ -90,5 +102,7 @@
         });
         
     </script>
+=======
+>>>>>>> c09eec4dd463949b4725bcadf5faa83e6c5e65cf
 </html>
 
