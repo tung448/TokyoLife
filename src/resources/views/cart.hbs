@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-    <body>
+    <body >
         <div class="container__cart">
             <div class="status__order">
                 <div class="cart__status">
-                    <i class="fa-solid fa-cart-plus"></i>
-                    <span class="text__cart__status">Giỏ hàng</span>
+                    <i class="fa-solid fa-cart-plus" style="color: #AC0007;"></i>
+                    <span class="text__cart__status" style="color: #AC0007;">Giỏ hàng</span>
                 </div>
                 <div class="ordered__item">
-                    <i class="fa-solid fa-box"></i>
-                    <span class="text__ordered__item">Đặt hàng</span>
+                    <i class="fa-solid fa-box" style="color: #999999;" ></i>
+                    <span class="text__ordered__item" style="color: #999999;">Đặt hàng</span>
                 </div>
                 <div class="cash__item">
-                    <i class="fa-solid fa-square-check"></i>
-                    <span class="text__cash__item">Hoàn thành đơn hàng</span>
+                    <i class="fa-solid fa-square-check" style="color: #999999;"></i>
+                    <span class="text__cash__item" style="color: #999999;">Hoàn thành đơn hàng</span>
                 </div>
             </div>
             <div class="detail__user__order">
                 <div class="detail__cart grid__column__8">
                     {{#with user}}
-<<<<<<< HEAD
                         <div class="header__cart">
                             <div class="name__item__cart grid__column__4">
                                 <span class="text__tittle__name">Tên hàng</span>
@@ -66,27 +65,15 @@
                 </div>
                 <div class="total__money grid__column__4">
                     <div id="totalCost">Tổng giá trị đơn hàng : 0 VND</div>
-                    <button id="checkout">
-                        <span class="text__checkout">Tiếp tục thanh toán</span>
+                    <button id="checkout" onclick="checkOut()">
+                        <span id="text__checkout">Tiếp tục thanh toán</span>
                     </button>
                 </div>
-
-=======
-                        {{#each cart_user}}
-                            <h1>{{this.name}}</h1>
-                        {{/each}}
-                    {{/with}}
-                </div>
-                <div class="total__money grid__column__4">
-                    
-                </div>
->>>>>>> c09eec4dd463949b4725bcadf5faa83e6c5e65cf
             </div>
-
         </div>
     </body>
-<<<<<<< HEAD
     <script>
+
         function sumOfItems(){
             // get all check boxes clicked
             const checkboxes = document.querySelectorAll('input[name="item"]:checked');
@@ -96,13 +83,38 @@
             });
             document.getElementById('totalCost').innerText = 'Tổng giá trị đơn hàng: ' + sum + ' VND';
         }
+
         // listen check boxes when change
         document.querySelectorAll('.checkbox-container').forEach((checkbox) => {
             checkbox.addEventListener('change', sumOfItems);
         });
-        
+
+        function undoClicked(){
+            const checkboxes = document.querySelectorAll('input[name="item"]:checked');
+            checkboxes.forEach((checkbox) => {
+            checkbox.checked = false; // Thiết lập trạng thái của checkbox thành "không được chọn"
+            });
+        }
+        function checkOut(){
+            const totalMoney = document.getElementById('totalCost');
+            let text = totalMoney.textContent;
+            const button = document.getElementById('checkout');
+
+            const numberPattern = /\d+/g; // Tìm tất cả các số
+            const result = text.match(numberPattern);
+
+             // Nếu tìm thấy, lấy phần tử đầu tiên (vì đây là số duy nhất trong chuỗi)
+            const value = result ? result[0] : null;
+            const numericValue = value ? parseInt(value) : 0;
+            if(numericValue == 0){
+                alert("BẠN CHƯA CHỌN ITEM NÀO");
+            }
+            else{
+                localStorage.setItem('totalMoney', numericValue);
+                undoClicked();
+                window.location.href = '/check-out';
+            }
+        }
     </script>
-=======
->>>>>>> c09eec4dd463949b4725bcadf5faa83e6c5e65cf
 </html>
 

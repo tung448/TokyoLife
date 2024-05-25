@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body onload="getTotalMoney()">
+        <div class="container__checkout">
+            <div class="status__order">
+                <div class="cart__status">
+                    <i class="fa-solid fa-cart-plus" style="color: #999999;"></i>
+                    <span class="text__cart__status" style="color: #999999;">Giỏ hàng</span>
+                </div>
+                <div class="ordered__item">
+                    <i class="fa-solid fa-box" style="color: #AC0007" ></i>
+                    <span class="text__ordered__item" style="color: #AC0007">Đặt hàng</span>
+                </div>
+                <div class="cash__item">
+                    <i class="fa-solid fa-square-check" style="color: #999999;"></i>
+                    <span class="text__cash__item" style="color: #999999;">Hoàn thành đơn hàng</span>
+                </div>
+            </div>
+            <div class="container__location__order ">
+                <div class="location__fill grid__column__8">
+                    <div id="icon__text__location__login">
+                        <div class="icon__text__location">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span id="text__location">
+                                ĐỊA CHỈ GIAO HÀNG
+                            </span>
+                        </div>
+                        <div class="login__cashing">
+                            <i class="fa-solid fa-user-large"></i>
+                            <span id="text__login">
+                                Đăng nhập
+                            </span>
+                        </div>
+                    </div>
+                    <div class="full__name__email">
+                       <div id="full__name">
+                            <span id="text__full__name">HỌ TÊN</span>
+                            <input type="text" id="fill__full__name" placeholder="Nhập họ tên của bạn">
+                       </div>
+                        <div id="email__fill">
+                            <span id="text__email">EMAIL</span>
+                            <input type="email" id="fill__email" placeholder="Nhập email của bạn">
+                        </div>
+                    </div>
+                    <div class="location__order__name">
+                       <div id="location__name">
+                            <span id="text__location__name">ĐỊA CHỈ</span>
+                            <input type="text" id="fill__location__name" placeholder="Nhập địa chỉ của bạn">
+                       </div>
+                    </div>
+                </div>
+                <div class="order__cashing grid__column__4">
+                    <div id="calculator__cost__all">
+                        <span id="text__tail">ĐƠN HÀNG</span>
+                        <span id="total__cashing">Tổng thanh toán: </span>
+                    </div>
+                    <button id="order__item" onclick="checkOut()">
+                        <span id="text__order__item">Đặt hàng</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        function getTotalMoney(){
+            var value = localStorage.getItem('totalMoney');
+            document.getElementById('total__cashing').innerText = 'Tổng thanh toán: ' + value + ' VND';
+        }  
+    </script>
+</html>
+
