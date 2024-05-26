@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-    <body>
+<body>
         <div class="container_buy_item grid">
-           {{#with item}}
-                 <div class="image__price__item grid__row">
+            {{#with item}}
+                <div class="image__price__item grid__row">
                     <div class="show__image__item grid__column__8">
                         <div class="area__select__image">
                             Choose image
                         </div>
                         <div class="image__item">
-                            <img src="{{this.imageURL}}" alt="" class="imageURL">
+                            <img src="{{this.imageURL}}" alt="" id="imageURL">
                         </div>
                     </div>
                     <div class="show__price grid__column__4">
@@ -19,13 +19,13 @@
                             </span>
                         </div>
                         <div class="show__name__item">
-                            <span class="name__item">{{this.name}}</span>
+                            <span id="name__item">{{this.name}}</span>
                         </div>
                         <div class="show__description__item">
-                            <span class="description__item">{{this.description}}</span>
+                            <span id="description__item">{{this.description}}</span>
                         </div>
                         <div class="show__price__item">
-                            <span class="price__item">{{this.price}} VND</span>
+                            <span id="price__item">{{this.cost}} VND</span>
                             <div class="status__item__check">
                                 <span class="status__item">Còn hàng </span>
                                 <span class="fa-solid fa-circle-check fa-lg"></span>
@@ -33,14 +33,14 @@
                         </div>
                         <hr>
                         <div class="choose__quality__item">
-                            <span class="quality__item">Chọn số lượng 1</span>
+                            <span id="quality__item">Chọn số lượng 1</span>
                         </div>
                         <div class="add__buy__item">
-                            <a href="/cart" class="add__item">
+                            <a href="/cart" class="add__item" onclick="addItem2cart(event)">
                                 <span class="fa-solid fa-cart-shopping"></span>
                                 <span class="text__add__item">Thêm giỏ hàng</span>
                             </a>
-                            <a href="/cart" class="buy__item">
+                            <a href="/cart" class="buy__item"  onclick="addItem2cart(event)">
                                 <span class="fa-solid fa-bag-shopping"></span>
                                 <span class="text__buy__item">
                                     Mua ngay
@@ -71,10 +71,48 @@
                             </div>
                         </div>
                     </div>
-
+                    <span id="adminPost">{{this.adminPost}}</span>
                 </div>
             {{/with}}
         </div>
-    </body>
+</body>
+<script defer>
+    async function addItem2cart(event){
+        //event.preventDefault(); // / Ngăn chặn hành động mặc định của thẻ <a>
+        name = document.getElementById('name__item').textContent;
+        description = document.getElementById('description__item').textContent;
+        imageURL = document.getElementById('imageURL').src;
+        cost = document.getElementById('price__item').textContent;
+        adminPost = document.getElementById('adminPost').textContent;
+
+        const ItemSchema = {
+            name: name,
+            description : description,
+            imageURL : imageURL,
+            cost : cost,
+            adminPost: adminPost,
+        };
+        try{
+            // Gửi yêu cầu POST đến server để lưu item
+            const response = await fetch('/add-to-cart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(ItemSchema),
+            });
+            if (response.ok) {
+                console.log(response.ok);
+               // Nếu lưu thành công, chuyển đến trang giỏ hàng
+                window.location.href = '/cart';
+            } else {
+                alert("fali")
+            }
+        }
+        catch(error){
+            console.log(error);
+        }
+    }
+</script>
 </html>
 

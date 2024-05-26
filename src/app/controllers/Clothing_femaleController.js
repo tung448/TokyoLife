@@ -20,7 +20,6 @@ class Clothing_femaleController{
      async buyitem(req,res){
           try{
                const item = await modelItem.findOne({slug : req.params.slug}).lean();
-               console.log(item);
                res.render('buyitem',{item});
           }
           catch(err){

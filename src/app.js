@@ -24,5 +24,5 @@ console.log(path.join(__dirname, 'resources/views'));
 // routes
 routes(app);
 
-app.listen(port,()=>console.log(`Server is running on http://localhost:${port}`));
+app.listen(port,()=>console.log(`Server is running on http://localhost:${port}/home`));
 

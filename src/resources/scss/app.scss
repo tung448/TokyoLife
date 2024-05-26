@@ -300,7 +300,7 @@ html{
 .image__item{
     margin-left: 10px;
 }
-.imageURL{
+#imageURL{
     width: 650px;
     height: 740px;
     object-fit: cover;
@@ -324,12 +324,12 @@ html{
 .show__description__item{
     margin-top: 10px;
 }
-.name__item{
+#name__item{
     font-size: 1.7rem;
     font-weight: bold;
 }
 
-.description__item{
+#description__item{
     font-size: 1.2rem;
     color: #C92173;
     font-style: italic;
@@ -342,7 +342,7 @@ html{
     align-items: center;
     justify-content: space-between;
 }
-.price__item{
+#price__item{
     font-size: 2.5rem;
     font-weight: bold;
 }
@@ -363,7 +363,7 @@ hr {
 .choose__quality__item{
     
 }
-.quality__item{
+#quality__item{
     font-size: 1.5rem;
     font-weight: bold;
 }
@@ -431,6 +431,10 @@ hr {
     padding-top:10px;
     text-align:center;
     font-size:1.5rem;
+}
+
+#adminPost{
+    display: none;
 }
 
 // cart page

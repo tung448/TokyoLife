@@ -7,8 +7,9 @@ const Item_Circle = new Schema({
   name: { type: String, default: '' },
   description: { type: String, default: '' },
   imageURL: { type: String, default: '' },
-  createAt: { type: Date, default: Date.now },
-  updateAt: { type: Date, default: Date.now },
+  
+},{
+    timestamps : true,
 });
 
 module.exports = mongoose.model('Item_Circle', Item_Circle);
