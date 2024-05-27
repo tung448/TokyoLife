@@ -6,18 +6,13 @@ const checkOut = require('./checkOut');
 const add2cart = require('./add2cart');
 
 function routes(app){
-    // Middleware để phân tích cú pháp JSON từ yêu cầu
-    app.use(express.json());
-
-    // Middleware để phân tích cú pháp URL-encoded payloads
-    app.use(express.urlencoded({ extended: true }));
-
     // clothing-female 
     app.use('/clothing-female',clothingFemale);
     
     // cart
     app.use('/cart',cart)
 
+    // POST
     app.use('/add-to-cart',add2cart);
 
     // checkOut

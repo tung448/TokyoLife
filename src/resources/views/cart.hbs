@@ -73,7 +73,6 @@
         </div>
     </body>
     <script>
-
         function sumOfItems(){
             // get all check boxes clicked
             const checkboxes = document.querySelectorAll('input[name="item"]:checked');
@@ -88,7 +87,6 @@
         document.querySelectorAll('.checkbox-container').forEach((checkbox) => {
             checkbox.addEventListener('change', sumOfItems);
         });
-
         function undoClicked(){
             const checkboxes = document.querySelectorAll('input[name="item"]:checked');
             checkboxes.forEach((checkbox) => {

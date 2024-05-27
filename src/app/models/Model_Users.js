@@ -7,8 +7,7 @@ const Item = require('./SchemaItem');
 const User = new Schema({
     user_name: { type: String, require: true },
     pass_word: { type: String, default: '' },
-    cart_user: { type: [Item], default: [] },
-
+    cart_user: [Item],
 },{
     timestamps : true,
 });

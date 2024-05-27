@@ -1,19 +1,36 @@
 
-const Item = require('../models/SchemaItem');
+const helper = require('../helper/Helper');
 const users = require('../models/Model_Users');
 
 // add item to user' cart
 class add2cartController{
     // POST 
-    async index(req,res){
-          Item.name = req.body.name;
-          Item.description = req.body.description;
-          Item.imageURL = req.body.imageURL;
-          Item.cost = req.body.cost;
-          Item.adminPost = req.body.adminPost;
+     async index(req,res){
+          const newItemData = {
+               name: req.body.name,
+               description: req.body.description,
+               imageURL: req.body.imageURL,
+               cost: helper.extracNumber(req.body.cost),
+               adminPost: req.body.adminPost,
+          };
           try{
-               const user = await users.findOne({user_name:'tungbeng'}).lean(); // convert to plain text
-               res.render('cart',{user: user});
+               const user = await users.findOne({ user_name:'tungbeng' });
+               // Kiểm tra xem trong cart_user đã có item với newItemData.name chưa
+               const itemExists = user.cart_user.
+               some(item => item.name === newItemData.name);
+               if (!itemExists) {
+                    users.updateOne({user_name:'tungbeng'},
+                    { $push: { cart_user: newItemData }})
+                    .then(()=>{
+                         res.redirect('/cart');
+                    })
+                    .catch((err)=>{
+                         console.log(err);
+                    });
+               }
+               else{
+                    res.redirect('/cart');
+               }
           }
           catch(err){
                res.status(500).json({ error: 'ERROR' });

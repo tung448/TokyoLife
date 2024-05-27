@@ -78,7 +78,7 @@
 </body>
 <script defer>
     async function addItem2cart(event){
-        //event.preventDefault(); // / Ngăn chặn hành động mặc định của thẻ <a>
+        event.preventDefault(); // / Ngăn chặn hành động mặc định của thẻ <a>
         name = document.getElementById('name__item').textContent;
         description = document.getElementById('description__item').textContent;
         imageURL = document.getElementById('imageURL').src;
