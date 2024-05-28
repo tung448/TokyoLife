@@ -1,11 +1,16 @@
-const express = require('express');
+
 const sites = require('./sites');
 const clothingFemale = require('./clothing_female');
 const cart = require('./cart');
 const checkOut = require('./checkOut');
 const add2cart = require('./add2cart');
+const login = require('./login');
 
 function routes(app){
+
+    // login - out [POST]
+    app.use('/login',login);
+    
     // clothing-female 
     app.use('/clothing-female',clothingFemale);
     
