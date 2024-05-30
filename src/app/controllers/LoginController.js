@@ -4,19 +4,32 @@ const users = require('../models/Model_Users');
 
 
 class LoginController{
-    // POST 
+     constructor() {
+          this.Session = {};
+          this.indexPost = this.indexPost.bind(this);
+          this.indexGet = this.indexGet.bind(this);
+      }
+     // POST 
      async indexPost(req,res){
-          const user = await users.findOne({user_name : req.body.username});
+          const user = await users.findOne({user_name : req.body.username}); // field data
           if(user){
                if(user.pass_word ===  req.body.pw){
-                    res.redirect('home');
+                    const sessionId = Date.now().toString();
+                    this.Session[sessionId] ={
+                         _id : user._id,
+                    };
+                    // cookies 
+                   // console.log(this.Session);
+                    res.setHeader('Set-Cookie', `sessionId=${sessionId}; Max-Age=3600; HttpOnly`);
+
+                    return res.redirect('home');
                }
           }
-          res.render('login');
+          return res.render('login');
      }
      // GET
      indexGet(req,res){
-          res.render('login');
+          return res.render('login');
      }
 }
 module.exports = new LoginController();
