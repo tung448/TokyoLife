@@ -4,7 +4,8 @@ const CheckOutController = require('../app/controllers/CheckOutController');
 
 
 
-router.get('/',CheckOutController.index);
+router.post('/',CheckOutController.indexPost)
+router.get('/',CheckOutController.indexGet);
 
 
 module.exports = router;

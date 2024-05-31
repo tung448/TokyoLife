@@ -2,8 +2,12 @@
 
 
 class CheckOutController{
+
+    indexPost(req,res){
+        res.render('checkOut');
+    }
     // GET /cart // user
-    index(req,res){
+    indexGet(req,res){
           res.render('checkOut');
     }
 }

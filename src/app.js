@@ -12,7 +12,7 @@ const routes = require('./routes/index');
 app.use(express.static(path.join(__dirname,'public'))); // static file
 
 // // Middleware để phân tích cú pháp JSON từ yêu cầu
-// app.use(express.json());
+app.use(express.json());
 // Middleware để phân tích cú pháp URL-encoded payloads
 app.use(express.urlencoded({ extended: true }));
 

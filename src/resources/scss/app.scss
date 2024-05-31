@@ -300,7 +300,7 @@ html{
 .image__item{
     margin-left: 10px;
 }
-#imageURL{
+#imageUrl{
     width: 650px;
     height: 740px;
     object-fit: cover;
@@ -557,6 +557,11 @@ hr {
     font-size: 1.8rem;
     color: var(--while-color);
 }
+
+#imageURL ,#nameItem ,#costItem{
+    display: none;
+}
+
 
 // check out
 

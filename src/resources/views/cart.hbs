@@ -16,64 +16,67 @@
                     <span class="text__cash__item" style="color: #999999;">Hoàn thành đơn hàng</span>
                 </div>
             </div>
-            <div class="detail__user__order">
-                <div class="detail__cart grid__column__8">
-                    {{#with user}}
-                        <div class="header__cart">
-                            <div class="name__item__cart grid__column__4">
-                                <span class="text__tittle__name">Tên hàng</span>
-                            </div>
-                            <div class="total__money__quanlity grid__column__4">
-                                <div class="quanlity__item">
-                                    <span class="text__quanlity">Số lượng</span>
+            <form action="/check-out" method="POST">
+                <div class="detail__user__order">
+                    <div class="detail__cart grid__column__8">
+                        {{#with user}}
+                            <div class="header__cart">
+                                <div class="name__item__cart grid__column__4">
+                                    <span class="text__tittle__name">Tên hàng</span>
                                 </div>
-                                <div class="total__money__item">
-                                    <span class="text__total__money">Tổng tiền</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="body__cart">
-                            {{#each cart_user}}
-                                <div class="foreach__item__info">
-                                    <label class="checkbox-container">
-                                        <input type="checkbox" name="item" value="{{this.cost}}">
-                                    </label>
-                                    <div class="image__name__item__form__data__base grid__column__4">
-                                        <div class="image__from__data__base">
-                                            <img src="{{this.imageURL}}" alt="" class="image__item__from__data__base">
-                                        </div>
-                                        <div class="name__from__data__base">
-                                            <span class="name__item__from__data__base">
-                                                {{this.name}}
-                                            </span>
-                                        </div>
+                                <div class="total__money__quanlity grid__column__4">
+                                    <div class="quanlity__item">
+                                        <span class="text__quanlity">Số lượng</span>
                                     </div>
-                                    <div class="quanlity__cost__item grid__column__4">
-                                        <div class="text__quanlity__item">
-                                            <span class="text__show__quanlity">1</span>
-                                        </div>
-                                        <div class="show__cost__item">
-                                            <span class="text__show__cost">
-                                                {{this.cost}}đ
-                                            </span>
-                                        </div>
+                                    <div class="total__money__item">
+                                        <span class="text__total__money">Tổng tiền</span>
                                     </div>
                                 </div>
-                            {{/each}}
-                        </div>
-                    {{/with}}
+                            </div>
+                            <div class="body__cart">
+                                {{#each cart_user}}
+                                    <div class="foreach__item__info">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" name="item" value="{{this.cost}}">
+                                        </label>
+                                        <div class="image__name__item__form__data__base grid__column__4">
+                                            <div class="image__from__data__base">
+                                                <img src="{{this.imageURL}}" alt="" class="image__item__from__data__base">
+                                                <input id="imageURL" type="text" name="imageURL" value="{{this.imageURL}}">
+                                            </div>
+                                            <div class="name__from__data__base">
+                                                <span class="name__item__from__data__base">
+                                                    {{this.name}}
+                                                </span>
+                                                <input id="nameItem" type="text" name="nameItem" value="{{this.name}}">
+                                            </div>
+                                        </div>
+                                        <div class="quanlity__cost__item grid__column__4">
+                                            <div class="text__quanlity__item">
+                                                <span class="text__show__quanlity">1</span>
+                                            </div>
+                                            <div class="show__cost__item">
+                                                <span class="text__show__cost">{{this.cost}}đ</span>
+                                                <input id="costItem" type="text" name="costItem" value="{{this.cost}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                {{/each}}
+                            </div>
+                        {{/with}}
+                    </div>
+                    <div class="total__money grid__column__4">
+                        <div id="totalCost">Tổng giá trị đơn hàng : 0 VND</div>
+                        <button id="checkout">
+                            <span id="text__checkout">Tiếp tục thanh toán</span>
+                        </button>
+                    </div>
                 </div>
-                <div class="total__money grid__column__4">
-                    <div id="totalCost">Tổng giá trị đơn hàng : 0 VND</div>
-                    <button id="checkout" onclick="checkOut()">
-                        <span id="text__checkout">Tiếp tục thanh toán</span>
-                    </button>
-                </div>
-            </div>
+            </form>
         </div>
     </body>
     <script>
-        function sumOfItems(){
+        {{!-- function sumOfItems(){
             // get all check boxes clicked
             const checkboxes = document.querySelectorAll('input[name="item"]:checked');
             let sum = 0;
@@ -112,7 +115,7 @@
                 undoClicked();
                 window.location.href = '/check-out';
             }
-        }
+        } --}}
     </script>
 </html>
 
