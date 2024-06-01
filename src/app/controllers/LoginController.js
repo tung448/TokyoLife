@@ -18,11 +18,9 @@ class LoginController{
                     this.Session[sessionId] ={
                          _id : user._id,
                     };
-                    // cookies 
-                   // console.log(this.Session);
                     res.setHeader('Set-Cookie', `sessionId=${sessionId}; Max-Age=3600; HttpOnly`);
 
-                    return res.redirect('home');
+                    return res.redirect('/home');
                }
           }
           return res.render('login');

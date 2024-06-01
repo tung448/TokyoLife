@@ -5,8 +5,12 @@ const cart = require('./cart');
 const checkOut = require('./checkOut');
 const add2cart = require('./add2cart');
 const login = require('./login');
+const successOrder = require('./successOrder');
+
 
 function routes(app){
+    // success order
+    app.use('/success-order',successOrder)
 
     // login - out [POST]
     app.use('/login',login);

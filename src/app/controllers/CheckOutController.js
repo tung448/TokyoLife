@@ -3,6 +3,7 @@
 
 class CheckOutController{
 
+    //POST 
     indexPost(req,res){
         res.render('checkOut');
     }

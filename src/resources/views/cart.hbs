@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <body >
+    <body>
         <div class="container__cart">
             <div class="status__order">
                 <div class="cart__status">
@@ -37,18 +37,17 @@
                                 {{#each cart_user}}
                                     <div class="foreach__item__info">
                                         <label class="checkbox-container">
-                                            <input type="checkbox" name="item" value="{{this.cost}}">
+                                            <input type="checkbox" name="item" value='{"cost": "{{this.cost}}", 
+                                            "imageURL": "{{this.imageURL}}", "nameItem": "{{this.name}}"}'>
                                         </label>
                                         <div class="image__name__item__form__data__base grid__column__4">
                                             <div class="image__from__data__base">
                                                 <img src="{{this.imageURL}}" alt="" class="image__item__from__data__base">
-                                                <input id="imageURL" type="text" name="imageURL" value="{{this.imageURL}}">
                                             </div>
                                             <div class="name__from__data__base">
                                                 <span class="name__item__from__data__base">
                                                     {{this.name}}
                                                 </span>
-                                                <input id="nameItem" type="text" name="nameItem" value="{{this.name}}">
                                             </div>
                                         </div>
                                         <div class="quanlity__cost__item grid__column__4">
@@ -57,7 +56,6 @@
                                             </div>
                                             <div class="show__cost__item">
                                                 <span class="text__show__cost">{{this.cost}}đ</span>
-                                                <input id="costItem" type="text" name="costItem" value="{{this.cost}}">
                                             </div>
                                         </div>
                                     </div>
@@ -67,7 +65,7 @@
                     </div>
                     <div class="total__money grid__column__4">
                         <div id="totalCost">Tổng giá trị đơn hàng : 0 VND</div>
-                        <button id="checkout">
+                        <button id="checkout" type="submit" onclick="checkOut()" disabled>
                             <span id="text__checkout">Tiếp tục thanh toán</span>
                         </button>
                     </div>
@@ -76,24 +74,31 @@
         </div>
     </body>
     <script>
-        {{!-- function sumOfItems(){
-            // get all check boxes clicked
+        let checkoutButton = document.getElementById('checkout');
+        let itemClicked = [];
+        document.querySelectorAll('.checkbox-container').forEach((checkbox) => { // listen check boxes when change
+            checkbox.addEventListener('change', sumOfItems);
+        });
+
+        function sumOfItems(){  // get all check boxes clicked
             const checkboxes = document.querySelectorAll('input[name="item"]:checked');
-            let sum = 0;
-            checkboxes.forEach((checkbox)=>{
-                sum+= parseFloat(checkbox.value);
+            let sum = 0; itemClicked = [];
+            checkboxes.forEach((checkbox) =>{
+                const itemData = JSON.parse(checkbox.value);
+                itemClicked.push(itemData);
+                sum+= parseFloat(itemData['cost']);
+                if(sum != 0){
+                    checkoutButton.disabled = false;
+                }
+                
             });
             document.getElementById('totalCost').innerText = 'Tổng giá trị đơn hàng: ' + sum + ' VND';
         }
 
-        // listen check boxes when change
-        document.querySelectorAll('.checkbox-container').forEach((checkbox) => {
-            checkbox.addEventListener('change', sumOfItems);
-        });
         function undoClicked(){
             const checkboxes = document.querySelectorAll('input[name="item"]:checked');
             checkboxes.forEach((checkbox) => {
-            checkbox.checked = false; // Thiết lập trạng thái của checkbox thành "không được chọn"
+                checkbox.checked = false; // Thiết lập trạng thái của checkbox thành "không được chọn"
             });
         }
         function checkOut(){
@@ -107,15 +112,15 @@
              // Nếu tìm thấy, lấy phần tử đầu tiên (vì đây là số duy nhất trong chuỗi)
             const value = result ? result[0] : null;
             const numericValue = value ? parseInt(value) : 0;
-            if(numericValue == 0){
-                alert("BẠN CHƯA CHỌN ITEM NÀO");
-            }
-            else{
+            if(numericValue != 0){
+                localStorage.setItem('itemClicked', JSON.stringify(itemClicked)); // save to local storage
                 localStorage.setItem('totalMoney', numericValue);
                 undoClicked();
-                window.location.href = '/check-out';
             }
-        } --}}
+            else{
+                checkoutButton.disabled = true;
+            }
+        }
     </script>
 </html>
 

@@ -3,8 +3,8 @@ const router = express.Router();
 const sitesController = require('../app/controllers/SitesController');
 
 
-
-router.get('/home',sitesController.home);
+router.post('/home',sitesController.homePost);
+router.get('/home',sitesController.homeGet);
 
 
 module.exports = router;

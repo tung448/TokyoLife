@@ -493,7 +493,7 @@ hr {
 .body__cart{
     margin-left: 40px;
 }
-.foreach__item__info{
+.foreach__item__info, #container__item__cashing{
     padding-top: 30px;
     display: flex;
     align-items: center;
@@ -657,3 +657,7 @@ hr {
     color: var(--while-color);
 }
 
+// success
+#card__success__order__container{
+    
+}

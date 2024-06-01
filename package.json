@@ -26,7 +26,8 @@
     "cookie-parser": "^1.4.6",
     "express": "^4.19.2",
     "express-handlebars": "^7.1.2",
-    "mongoose": "^8.4.0"
+    "mongoose": "^8.4.0",
+    "node-localstorage": "^3.0.5"
   },
   "devDependencies": {
     "node-sass": "^9.0.0",

@@ -1,7 +1,6 @@
-<!DOCTYPE html>
 <html lang="en">
-    <body onload="getTotalMoney()">
-        <form  method="POST">
+    <body>
+        <form action="/success-order" method="POST">
             <div class="container__checkout">
                 <div class="status__order">
                     <div class="cart__status">
@@ -55,19 +54,59 @@
                             <span id="text__tail">ĐƠN HÀNG</span>
                             <span id="total__cashing">Tổng thanh toán: </span>
                         </div>
-                        <button id="order__item">
+                        <button id="order__item" type="submit">
                             <span id="text__order__item">Đặt hàng</span>
                         </button>
                     </div>
                 </div>
             </div>
+            <div id="container__item__cashing">
+                
+            </div>
         </form>
     </body>
     <script>
-        function getTotalMoney(){
-            var value = localStorage.getItem('totalMoney');
-            document.getElementById('total__cashing').innerText = 'Tổng thanh toán: ' + value + ' VND';
-        }  
+        var valueMoney = localStorage.getItem('totalMoney');
+        document.getElementById('total__cashing').innerText = 'Tổng thanh toán: ' + valueMoney + ' VND'; 
+        
+        document.addEventListener('DOMContentLoaded', (event) => {
+            let itemHTML = '';
+            const itemsContainer = document.getElementById('container__item__cashing');
+            const itemClicked = JSON.parse(localStorage.getItem('itemClicked'));
+            console.log(itemClicked);
+
+            if (Array.isArray(itemClicked)) {
+                itemClicked.forEach(item => {
+                    console.log(item.imageURL);
+                     itemHTML += `
+                        <div class="image__name__item__form__data__base grid__column__4">
+                            <div class="image__from__data__base">
+                                <img src="${item.imageURL}" alt="" class="image__item__from__data__base">
+                            </div>
+                            <div class="name__from__data__base">
+                                <span class="name__item__from__data__base">
+                                    ${item.nameItem}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="quanlity__cost__item grid__column__4">
+                            <div class="text__quanlity__item">
+                                <span class="text__show__quanlity">1</span>
+                            </div>
+                            <div class="show__cost__item">
+                                <span class="text__show__cost">
+                                    ${item.cost}đ
+                                </span>
+                            </div>
+                        </div>
+                    `;
+                });
+                itemsContainer.insertAdjacentHTML('beforeend', itemHTML);
+            } else {
+                console.log('No items found in localStorage or itemClicked is not an array');
+            }
+        });
+
     </script>
 </html>
 
