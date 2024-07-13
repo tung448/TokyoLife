@@ -5,7 +5,7 @@ const dataBase = require('./config/db/index');
 const cookieParser = require('cookie-parser')
 
 const app = express();
-const port = 3000;
+const port = 8011;
 
 const routes = require('./routes/index');
 
@@ -29,7 +29,6 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views')); // unstable directory of handlebars
 
 console.log(path.join(__dirname, 'resources/views'));
-
 // routes
 routes(app);
 
