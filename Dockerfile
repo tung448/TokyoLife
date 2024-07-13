@@ -1,5 +1,5 @@
-# Sử dụng image Node.js chính thức
-FROM node:14
+# Sử dụng image Node.js phiên bản 20.12.2 chính thức
+FROM node:20.12.2
 
 # Tạo và chỉ định thư mục làm việc trong container
 WORKDIR /usr/src/app
